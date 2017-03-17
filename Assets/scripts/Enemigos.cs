@@ -11,6 +11,7 @@ public class Enemigos : MonoBehaviour
     public bool entro=false;
     public static  bool nomorir=false;
     public GameObject obj;
+    public int puntosGanados = 3;
     // Use this for initialization
     void Start()
     {
@@ -37,24 +38,13 @@ public class Enemigos : MonoBehaviour
             if(nomorir)
             {
                 Destroy(obj);
+                NotificationCenter.DefaultCenter().PostNotification(this, "IncrementarPuntos", puntosGanados);
             }
             else
             {
                 NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
 
-                if (nombre == "Ecuatoriano")
-                {
-                    personaje = GameObject.Find("ECUATORIANO");
-                    personaje.SetActive(false);
-                }
-                else
-                {
-                    if (nombre == "Peruano")
-                    {
-                        personaje = GameObject.Find("PERUANO");
-                        personaje.SetActive(false);
-                    }
-                }
+                other.gameObject.SetActive(false);
             }
             
         }

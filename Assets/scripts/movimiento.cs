@@ -14,16 +14,23 @@ public class movimiento : MonoBehaviour
     private bool corriendo = false;
     public bool pantInicio = false;
     public bool dobleSalto = false;
+    public GameObject SystemPArticulas;
 
     void Start()
     {
+        SystemPArticulas.SetActive(false);
         NotificationCenter.DefaultCenter().AddObserver(this, "AumentarVelocidad");
+        NotificationCenter.DefaultCenter().AddObserver(this, "SystemPaticule");
         if (pantInicio)
         {
             corriendo = true;
             enSuelo = true;
 
         }
+    }
+    void SystemPaticule(Notification not)
+    {
+        SystemPArticulas.SetActive((bool)not.data);
     }
     void AumentarVelocidad()
     {

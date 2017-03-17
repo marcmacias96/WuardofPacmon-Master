@@ -9,6 +9,7 @@ public class JugadorSelec : MonoBehaviour {
     public static JugadorSelec transJugador;
     public Transform seleccionado;
     public bool entro = false;
+    public static GameObject personaje;
     // Use this for initialization
     void Start () {
         nombre = EstadoJuego.estadoJuego.jugador;
@@ -18,7 +19,8 @@ public class JugadorSelec : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (nombre == "Ecuatoriano")
+      
+       /* if (nombre == "Ecuatoriano")
         {
             Peruano.SetActive(false);
             entro = true;
@@ -32,6 +34,6 @@ public class JugadorSelec : MonoBehaviour {
 
                 entro = true;
             }
-        }
+        }*/
     }
 }

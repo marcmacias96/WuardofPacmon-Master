@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 public class camaraSeg : MonoBehaviour {
-    public Transform personaje;
-    public string nombre;
-    public JugadorSelec jugadorselec;
+    public static Transform personaje;
+    public static string nombre;
+    public Transform generador;
+    public GameObject[] personajes;
+
     // Use this for initialization
     void Start () {
         nombre = EstadoJuego.estadoJuego.jugador;
-        jugadorselec = GameObject.Find("Main Camera").GetComponent<JugadorSelec>();
-        if (nombre == "Ecuatoriano")
+       
+        for (int i=0;i<personajes.Length;i++)
         {
-            personaje = jugadorselec.Ecuatoriano.GetComponent<Transform>();
+            Debug.Log(personajes[i].name);
+            Debug.Log(nombre);
+            if (nombre==personajes[i].name)
+            {
+                
+                Instantiate(personajes[i], generador.position, generador.rotation);
+            }
         }
-        if (nombre == "Peruano")
-        {
-            personaje = jugadorselec.Peruano.GetComponent<Transform>();
-        }
+
+        nombre += "(Clone)";
+        personaje = GameObject.Find(nombre).GetComponent<Transform>();
+      
+       
     }
 
     public float separacion = 6f;

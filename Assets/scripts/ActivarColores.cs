@@ -11,6 +11,7 @@ public class ActivarColores : MonoBehaviour {
     void Start () {
         NotificationCenter.DefaultCenter().AddObserver(this, "DesactivarActivarColores");
         NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
+       
     }
 	
 	// Update is called once per frame
@@ -20,7 +21,7 @@ public class ActivarColores : MonoBehaviour {
         {
             nomorir = true;
             camara.SetActive(true);
-            
+            NotificationCenter.DefaultCenter().PostNotification(this, "SystemPaticule",true);
         }
 
     }
@@ -32,6 +33,7 @@ public class ActivarColores : MonoBehaviour {
     }
     void DesactivarActivarColores()
     {
+        NotificationCenter.DefaultCenter().PostNotification(this, "SystemPaticule", false);
         des = true;
         puntuacion.text = "0";
         camara.SetActive(false);
