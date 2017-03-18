@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Puntuacion : MonoBehaviour {
 
@@ -45,6 +46,10 @@ public class Puntuacion : MonoBehaviour {
                 NotificationCenter.DefaultCenter().PostNotification(this, "AumentarVelocidad");
             }
             
+        }
+        if(puntuacion==100)
+        {
+            SceneManager.LoadScene(2);
         }
         marcadorPaks.text = paks.ToString();
 

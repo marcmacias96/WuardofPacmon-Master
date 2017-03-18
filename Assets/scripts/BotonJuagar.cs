@@ -21,8 +21,6 @@ public class BotonJuagar : MonoBehaviour {
     {
        
         PantallaSeleccionPersonaje.SetActive(true);
-
-		
 		titutloJugar.SetActive (false);
     }
 

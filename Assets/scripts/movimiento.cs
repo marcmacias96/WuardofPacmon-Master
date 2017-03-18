@@ -36,7 +36,7 @@ public class movimiento : MonoBehaviour
     {
         if(velocidad<19)
         {
-            velocidad += 1f;
+            velocidad += 1.3f;
             NotificationCenter.DefaultCenter().PostNotification(this, "gen");
         }
         

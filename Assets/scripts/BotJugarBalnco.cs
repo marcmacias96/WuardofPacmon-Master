@@ -19,14 +19,16 @@ public class BotJugarBalnco : MonoBehaviour {
     {
         nombre = GameObject.Find("EstadoJuego").GetComponent<EstadoJuego>().jugador;
         Camera.main.GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
         if (nombre == null || nombre == "")
         {
             mensaje.text = "Selecciona Uno";
         }
         else
         {
+            GetComponent<AudioSource>().Play();
             Invoke("CargarNivelJuego", GetComponent<AudioSource>().clip.length);
+           
         }
         
         

@@ -43,7 +43,7 @@ public class MovPakVsBos : MonoBehaviour {
             GetComponent<SpriteRenderer>().flipX=true;
             desactivaDere = true;
         }
-        if (Input.GetButton("Fire1")&& Time.time  > nexFire)
+        if (Input.GetMouseButtonDown(0) && Time.time  > nexFire)
         {
             nexFire = Time.time + fireRate;
             Instantiate(disparo, disparador.position, disparador.rotation);

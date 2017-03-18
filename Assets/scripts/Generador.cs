@@ -19,8 +19,8 @@ public class Generador : MonoBehaviour {
     }
     void gen()
     {
-        tiempoMin -= 0.15f;
-        tiempoMax-=0.15f;
+        tiempoMin -= 0.18f;
+        tiempoMax-=0.18f;
     }
     void PersonajeEmpiezaACorrer(Notification notificacion)
     {
