@@ -6,6 +6,7 @@ public class ActivarColores : MonoBehaviour {
     public TextMesh puntuacion;
     public GameObject camara;
     public static bool nomorir = false;
+    private bool entra=false;
    
     // Use this for initialization
     void Start () {
@@ -17,8 +18,9 @@ public class ActivarColores : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-        if(puntuacion.text.ToString().Equals("3"))
+        if(puntuacion.text.ToString().Equals("3")&&!entra)
         {
+            entra = true;
             nomorir = true;
             camara.SetActive(true);
             NotificationCenter.DefaultCenter().PostNotification(this, "SystemPaticule",true);

@@ -49,7 +49,12 @@ public class Puntuacion : MonoBehaviour {
         }
         if(puntuacion==100)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
+            if (puntuacion > EstadoJuego.estadoJuego.puntuacionMaxima)
+            {
+                EstadoJuego.estadoJuego.puntuacionMaxima = puntuacion;
+                EstadoJuego.estadoJuego.Guardar();
+            }
         }
         marcadorPaks.text = paks.ToString();
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class botonPause : MonoBehaviour {
     private bool muerto=false;
+    public GameObject camara;
 	// Use this for initialization
 	void Start () {
         NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
@@ -16,8 +17,10 @@ public class botonPause : MonoBehaviour {
     { 
         if(!muerto)
         {
-            NotificationCenter.DefaultCenter().PostNotification(this, "ActivarPause");
             Time.timeScale = 0;
+            NotificationCenter.DefaultCenter().PostNotification(this, "ActivarPause");
+            camara.SetActive(true);
+            
         }
         
     }

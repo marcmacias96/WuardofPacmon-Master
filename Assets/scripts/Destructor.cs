@@ -4,6 +4,7 @@ using System.Collections;
 public class Destructor : MonoBehaviour {
     private string nombre;
     private GameObject personaje;
+    public bool entra;
     // Use this for initialization
     void Start () {
         nombre = camaraSeg.nombre;
@@ -15,6 +16,7 @@ public class Destructor : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other){
+        entra = true;
 		if(other.tag == "Player"){
             ActivarColores.nomorir = false;
             NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
