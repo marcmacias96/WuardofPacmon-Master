@@ -6,6 +6,7 @@ public class SelectPersonaje : MonoBehaviour {
     private string nombre;
     private Animator anima;
     public bool select,inactivo=true;
+    public string etiqueta;
     
     public GameObject[] personajes;
     // Use this for initialization
@@ -15,13 +16,32 @@ public class SelectPersonaje : MonoBehaviour {
     }
     void Start()
     {
-        
+        for (int i = 0; i < personajes.Length; i++)
+        {
+            switch(personajes[i].tag)
+            { 
+                case "MEXICANO":
+                    personajes[i].GetComponent<Animator>().SetBool("Ban", Manager.mexicano.GetBan());
+                    etiqueta = "MEx";
+                break;
+
+                case "PERUANO":
+                    personajes[i].GetComponent<Animator>().SetBool("Ban", Manager.peruano.GetBan());
+                break;
+
+                case "COLOMBIANO":
+                    personajes[i].GetComponent<Animator>().SetBool("Ban", Manager.colombiano.GetBan());
+                break;
+            }
+        }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
 
     }
     void Deselecsionar()
@@ -52,6 +72,7 @@ public class SelectPersonaje : MonoBehaviour {
                     personajes[i].GetComponent<SelectPersonaje>().inactivo = true;
                     personajes[i].GetComponent<SelectPersonaje>().select = false;
                     personajes[i].GetComponent<SelectPersonaje>().Deselecsionar();
+
                 }
             }
         }

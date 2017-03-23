@@ -8,6 +8,7 @@ public class botonPause : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
+        
     }
     void PersonajeHaMuerto()
     {

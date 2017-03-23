@@ -9,13 +9,14 @@ public class Puntuacion : MonoBehaviour {
     public TextMesh marcadorPaks;
     public GameObject geneEnemigos2;
     public GameObject geneEnemigos3;
+    private bool entra=false;
 
 	// Use this for initialization
 	void Start () {
 		NotificationCenter.DefaultCenter().AddObserver(this, "IncrementarPuntos");
 		NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
         NotificationCenter.DefaultCenter().AddObserver(this, "IncrementarPaks");
-
+       
         ActualizarMarcador();
 	}
 	void IncrementarPaks(Notification notificacion)
@@ -26,11 +27,26 @@ public class Puntuacion : MonoBehaviour {
     }
 
     void PersonajeHaMuerto(Notification notificacion){
+        int suma=puntuacion;
 		if(puntuacion > EstadoJuego.estadoJuego.puntuacionMaxima){
 			EstadoJuego.estadoJuego.puntuacionMaxima = puntuacion;
-			EstadoJuego.estadoJuego.Guardar();
-		}
-	}
+			EstadoJuego.estadoJuego.Guardar();   
+        }
+       if(!entra)
+        {
+            entra = true;
+            if (PlayerPrefs.HasKey("SumatoriaPuntuacion"))
+            {
+                suma += PlayerPrefs.GetInt("SumatoriaPuntuacion", puntuacion);
+                PlayerPrefs.SetInt("SumatoriaPuntuacion", suma);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("SumatoriaPuntuacion", suma);
+            }
+            Debug.Log("La Sumatoria de los nikes es:" + suma);
+        }
+    }
 
 	void IncrementarPuntos(Notification notificacion){
 		int puntosAIncrementar = (int)notificacion.data;

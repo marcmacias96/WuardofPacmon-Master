@@ -16,6 +16,14 @@ public class JugarNuevo : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        SceneManager.LoadScene(1);
+        if (tag == "scene3")
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
+        
     }
 }

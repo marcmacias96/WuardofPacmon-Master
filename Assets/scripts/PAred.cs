@@ -15,8 +15,18 @@ public class PAred : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D other)
     {
-        NotificationCenter.DefaultCenter().PostNotification(this, "Pared",name);
-        Debug.Log("Choco con " + name);
        
+        Debug.Log("Choco con " + name);
+        if (other.tag=="Bos")
+        {
+            MovimientoBos.pantalla = true;
+            NotificationCenter.DefaultCenter().PostNotification(this, "LineaBomas");
+        }
+        else
+        {
+            NotificationCenter.DefaultCenter().PostNotification(this, "Pared", name);
+        }
+        
+
     }
 }

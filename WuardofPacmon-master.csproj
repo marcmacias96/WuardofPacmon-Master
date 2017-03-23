@@ -92,6 +92,7 @@
     <Compile Include="Assets\scripts\ActivarPAuse.cs" />
     <Compile Include="Assets\scripts\ActualizarValoresGameOver.cs" />
     <Compile Include="Assets\scripts\AspectUtility.cs" />
+    <Compile Include="Assets\scripts\Bombas.cs" />
     <Compile Include="Assets\scripts\BotJugarBalnco.cs" />
     <Compile Include="Assets\scripts\BotonDisparo.cs" />
     <Compile Include="Assets\scripts\BotonJuagar.cs" />
@@ -108,15 +109,19 @@
     <Compile Include="Assets\scripts\Item.cs" />
     <Compile Include="Assets\scripts\JugadorSelec.cs" />
     <Compile Include="Assets\scripts\JugarNuevo.cs" />
+    <Compile Include="Assets\scripts\Manager.cs" />
     <Compile Include="Assets\scripts\MovDere.cs" />
     <Compile Include="Assets\scripts\MovIzq.cs" />
     <Compile Include="Assets\scripts\MovPakVsBos.cs" />
+    <Compile Include="Assets\scripts\MovimientoBos.cs" />
     <Compile Include="Assets\scripts\NotificationCenter.cs" />
     <Compile Include="Assets\scripts\PAred.cs" />
     <Compile Include="Assets\scripts\PantallaInicio.cs" />
+    <Compile Include="Assets\scripts\Personajes.cs" />
     <Compile Include="Assets\scripts\Puntuacion.cs" />
     <Compile Include="Assets\scripts\Scroll.cs" />
     <Compile Include="Assets\scripts\SelectPersonaje.cs" />
+    <Compile Include="Assets\scripts\VidaBos.cs" />
     <Compile Include="Assets\scripts\botonPause.cs" />
     <Compile Include="Assets\scripts\camaraSeg.cs" />
     <Compile Include="Assets\scripts\genelikes.cs" />

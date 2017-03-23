@@ -17,5 +17,6 @@ public class pantalla : MonoBehaviour {
     {
         entra = true;
         MovPakVsBos.pantalla = true;
+        MovimientoBos.pantalla = true;
     }
 }
