@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scene/inicio.unity
+- path: Assets/scene/Boss2Controles2.unity
   isLoaded: 1
   isActive: 1

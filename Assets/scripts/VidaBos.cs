@@ -20,8 +20,12 @@ public class VidaBos : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vida -= 5;
-        Destroy(collision.gameObject);
+        if(collision.collider.tag=="meemperra")
+        {
+            Vida -= 5;
+            Destroy(collision.gameObject);
+        }   
+       
         
     }
    

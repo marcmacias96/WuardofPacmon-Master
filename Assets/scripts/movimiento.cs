@@ -5,7 +5,8 @@ using UnityEngine;
 public class movimiento : MonoBehaviour
 {
     public float fuerzaSalto = 10.0F; //Velocidad de movimiento
-    public float velocidad = 1f;
+    public static float velo = 26.5f;
+    public  float velocidad;
     public bool enSuelo = true;
     public Transform comprobadorSuelo = null;
     private float comprobadorRadio = 0.07f;
@@ -15,18 +16,23 @@ public class movimiento : MonoBehaviour
     public bool pantInicio = false;
     public bool dobleSalto = false;
     public GameObject SystemPArticulas;
-
+    
     void Start()
     {
         SystemPArticulas.SetActive(false);
         NotificationCenter.DefaultCenter().AddObserver(this, "AumentarVelocidad");
         NotificationCenter.DefaultCenter().AddObserver(this, "SystemPaticule");
+        NotificationCenter.DefaultCenter().AddObserver(this, "Quieto");
         if (pantInicio)
         {
             corriendo = true;
             enSuelo = true;
 
         }
+    }
+    void Quieto()
+    {
+        velocidad = 0;
     }
     void SystemPaticule(Notification not)
     {
@@ -49,9 +55,10 @@ public class movimiento : MonoBehaviour
     }
     void FixedUpdate()
     {
+    
         if (corriendo)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(velocidad, GetComponent<Rigidbody2D>().velocity.y);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(velocidad ,GetComponent<Rigidbody2D>().velocity.y);
         }
         animator.SetFloat("velX", GetComponent<Rigidbody2D>().velocity.x);
         enSuelo = Physics2D.OverlapCircle(comprobadorSuelo.position, comprobadorRadio, mascaraSuelo);

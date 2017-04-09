@@ -6,8 +6,7 @@ public class Enemigos : MonoBehaviour
 {
     public float velocidad = 1;
     private string nombre;
-    private GameObject personaje;
-   
+    private GameObject personaje;  
     public bool entro=false;
     public static  bool nomorir=false;
     public GameObject obj;
@@ -42,12 +41,19 @@ public class Enemigos : MonoBehaviour
             }
             else
             {
-                NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
+               
+                other.gameObject.GetComponent<Animator>().SetBool("muerto",true);
+                Invoke("Muerto", 1);
+                NotificationCenter.DefaultCenter().PostNotification(this, "Quieto");
 
-                other.gameObject.SetActive(false);
             }
             
         }
 
+    }
+    
+   void Muerto()
+    {
+        NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
     }
 }

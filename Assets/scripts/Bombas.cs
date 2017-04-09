@@ -40,11 +40,14 @@ public class Bombas : MonoBehaviour {
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.SetActive(false);
+                other.gameObject.GetComponent<Animator>().SetBool("muerto", true);
+                
                 NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
 
             }
         }
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag=="Player" || other.tag=="suelo")
