@@ -15,7 +15,8 @@ public class Enemigos : MonoBehaviour
     void Start()
     {
         NotificationCenter.DefaultCenter().AddObserver(this, "Desactivar2");
-       
+        
+
         nombre = GameObject.Find("EstadoJuego").GetComponent<EstadoJuego>().jugador;
     }
     
@@ -23,12 +24,23 @@ public class Enemigos : MonoBehaviour
     void Update()
     {
         nomorir = ActivarColores.nomorir;
+        if(nomorir)
+        {
+            GetComponent<Animator>().SetBool("pumped", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("pumped", false);
+        }
+        
         GetComponent<Rigidbody2D>().velocity = new Vector2(-velocidad, GetComponent<Rigidbody2D>().velocity.y);
     }
     void Desactivar2()
     {
         
         nomorir = ActivarColores.nomorir;
+        GetComponent<Animator>().SetBool("pumped", true);
+
     }
    void  OnCollisionEnter2D(Collision2D other)
     {
@@ -38,6 +50,7 @@ public class Enemigos : MonoBehaviour
             {
                 Destroy(obj);
                 NotificationCenter.DefaultCenter().PostNotification(this, "IncrementarPuntos", puntosGanados);
+                
             }
             else
             {
@@ -56,4 +69,5 @@ public class Enemigos : MonoBehaviour
     {
         NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
     }
+   
 }

@@ -19,7 +19,7 @@ public class botonPause : MonoBehaviour {
         if(!muerto)
         {
             Time.timeScale = 0;
-            NotificationCenter.DefaultCenter().PostNotification(this, "ActivarPause");
+    //        NotificationCenter.DefaultCenter().PostNotification(this, "ActivarPause");
             camara.SetActive(true);
             
         }

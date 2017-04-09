@@ -24,6 +24,7 @@ public class ActivarColores : MonoBehaviour {
             nomorir = true;
             camara.SetActive(true);
             NotificationCenter.DefaultCenter().PostNotification(this, "SystemPaticule",true);
+            
         }
 
     }

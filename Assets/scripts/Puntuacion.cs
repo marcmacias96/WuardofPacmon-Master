@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Puntuacion : MonoBehaviour {
 
-	public int puntuacion = 0,paks=0;
+    public  int puntuacion = 0, paks = 0, packsanim =0;
 	public TextMesh marcador;
     public TextMesh marcadorPaks;
     public GameObject geneEnemigos2;
@@ -23,9 +23,24 @@ public class Puntuacion : MonoBehaviour {
     {
         int puntosAIncrementar = (int)notificacion.data;
         paks += puntosAIncrementar;
+        packsanim ++;
+        
+        AnimMarcPacks.anim.SetInteger("packs", packsanim);
+        if (packsanim==3)
+            {
+                Invoke("CambAnim", 0.5f);
+            }
+
+        
         ActualizarMarcador();
     }
-
+    void CambAnim()
+    {
+        
+        packsanim = 0;
+        AnimMarcPacks.anim.SetInteger("packs", packsanim);
+        
+    }
     void PersonajeHaMuerto(Notification notificacion){
         int suma=puntuacion;
 		if(puntuacion > EstadoJuego.estadoJuego.puntuacionMaxima){
