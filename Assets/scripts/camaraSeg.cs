@@ -14,8 +14,7 @@ public class camaraSeg : MonoBehaviour {
        
         for (int i=0;i<personajes.Length;i++)
         {
-            Debug.Log(personajes[i].name);
-            Debug.Log(nombre);
+            
             if (nombre==personajes[i].name)
             {
                 
@@ -25,7 +24,7 @@ public class camaraSeg : MonoBehaviour {
 
         nombre += "(Clone)";
         personaje = GameObject.Find(nombre).GetComponent<Transform>();
-      
+        Debug.Log(nombre);
        
     }
 

@@ -50,7 +50,7 @@ public class Bombas : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag=="Player" || other.tag=="suelo")
+        if (other.tag=="Player" || other.tag=="suelo"||other.tag=="meemperra")
         {
             explo = true;
             animator.SetBool("explo", explo);
@@ -62,8 +62,11 @@ public class Bombas : MonoBehaviour {
             if (other.tag=="Player")
             {
                 other.gameObject.SetActive(false);
-                NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");
-                
+                NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeHaMuerto");   
+            }
+            if(other.tag=="meemperra")
+            {
+                Destroy(other.gameObject);
             }
         }
             

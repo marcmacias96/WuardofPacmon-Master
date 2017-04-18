@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -99,12 +93,14 @@
     <Compile Include="Assets\scripts\ActualizarValoresGameOver.cs" />
     <Compile Include="Assets\scripts\AnimMarcPacks.cs" />
     <Compile Include="Assets\scripts\AspectUtility.cs" />
+    <Compile Include="Assets\scripts\BarraVida.cs" />
     <Compile Include="Assets\scripts\Bombas.cs" />
     <Compile Include="Assets\scripts\BotJugarBalnco.cs" />
     <Compile Include="Assets\scripts\BotonDisparo.cs" />
     <Compile Include="Assets\scripts\BotonJuagar.cs" />
     <Compile Include="Assets\scripts\BotonMenuP.cs" />
     <Compile Include="Assets\scripts\BotonVolver.cs" />
+    <Compile Include="Assets\scripts\BotonesInicio.cs" />
     <Compile Include="Assets\scripts\CamaraColores.cs" />
     <Compile Include="Assets\scripts\Destructor.cs" />
     <Compile Include="Assets\scripts\Disparo.cs" />
@@ -113,6 +109,7 @@
     <Compile Include="Assets\scripts\Generador.cs" />
     <Compile Include="Assets\scripts\GeneradorEnemigo2.cs" />
     <Compile Include="Assets\scripts\GeneradorEnemigo3.cs" />
+    <Compile Include="Assets\scripts\GeneradorPersonajes.cs" />
     <Compile Include="Assets\scripts\Item.cs" />
     <Compile Include="Assets\scripts\JugadorSelec.cs" />
     <Compile Include="Assets\scripts\JugarNuevo.cs" />
@@ -127,6 +124,7 @@
     <Compile Include="Assets\scripts\Personajes.cs" />
     <Compile Include="Assets\scripts\Puntuacion.cs" />
     <Compile Include="Assets\scripts\Scroll.cs" />
+    <Compile Include="Assets\scripts\SeleccionPerso.cs" />
     <Compile Include="Assets\scripts\SelectPersonaje.cs" />
     <Compile Include="Assets\scripts\VidaBos.cs" />
     <Compile Include="Assets\scripts\botonPause.cs" />

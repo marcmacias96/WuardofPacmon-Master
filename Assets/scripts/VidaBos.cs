@@ -5,10 +5,13 @@ using UnityEngine;
 public class VidaBos : MonoBehaviour {
     public float Vida=100;
     string text;
+    public int golpe;
+    public GameObject BarraVida;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        golpe = 5;
+        NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,15 +21,20 @@ public class VidaBos : MonoBehaviour {
 
         }
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.collider.tag=="meemperra")
+        if (collision.tag == "meemperra")
         {
-            Vida -= 5;
             Destroy(collision.gameObject);
-        }   
-       
-        
+            Vida -= golpe;
+            NotificationCenter.DefaultCenter().PostNotification(this, "VidaBoss", golpe);
+        }
     }
-   
+    void PersonajeHaMuerto()
+    {
+
+        BarraVida.SetActive(false);
+    }
+
+
 }

@@ -16,6 +16,7 @@ public class movimiento : MonoBehaviour
     public bool pantInicio = false;
     public bool dobleSalto = false;
     public GameObject SystemPArticulas;
+    private Vector2 touchOrigin = -Vector2.one;
     
     void Start()
     {
@@ -40,9 +41,9 @@ public class movimiento : MonoBehaviour
     }
     void AumentarVelocidad()
     {
-        if(velocidad<19)
+        if(velocidad<20)
         {
-            velocidad += 1.3f;
+            velocidad += 1.4f;
             NotificationCenter.DefaultCenter().PostNotification(this, "gen");
         }
         
@@ -79,7 +80,29 @@ public class movimiento : MonoBehaviour
                     if (enSuelo || !dobleSalto)
                     {
                         // Hacemos que salte si puede saltar
-                        GetComponent<AudioSource>().Play();
+                        GetComponent<AudioSource>().Play();/*
+                        Touch myTouch = Input.touches[0];
+                        if (myTouch.phase == TouchPhase.Began)
+                        {
+                            touchOrigin = myTouch.position;
+
+                        }
+                        else if (myTouch.phase == TouchPhase.Ended && touchOrigin != -Vector2.one)
+                        {
+                            Vector2 touchEnd = myTouch.position;
+                            float x = touchEnd.x - touchOrigin.x;
+                            float y = touchEnd.y - touchOrigin.y;
+                            if (x != 0 || y != 0)
+                            {
+                                if (Mathf.Abs(x) <= Mathf.Abs(y))
+                                {
+                                    if (y < 0)
+                                    {
+                                        GetComponent<Collider2D>().isTrigger = true;
+                                    }
+                                }
+                            }
+                        }*/
                         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, fuerzaSalto);
                         //rigidbody2D.AddForce(new Vector2(0, fuerzaSalto));
                         if (!dobleSalto && !enSuelo)
@@ -95,6 +118,8 @@ public class movimiento : MonoBehaviour
             {
                 corriendo = true;
                 NotificationCenter.DefaultCenter().PostNotification(this, "PersonajeEmpiezaACorrer");
+               
+
             }
         }
        

@@ -7,9 +7,7 @@ public class BotJugarBalnco : MonoBehaviour {
     public string nombre=null;
     public TextMesh mensaje;
     // Use this for initialization
-    void Start () {
-        
-    }
+   
 	
 	// Update is called once per frame
 	void Update () {
