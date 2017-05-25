@@ -37,34 +37,18 @@ public class MovimientoBos : MonoBehaviour {
             if(posJugador.x>0)
             {
                 Dere = true;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(posJugador.x, GetComponent<Rigidbody2D>().velocity.y);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(velocidad2, GetComponent<Rigidbody2D>().velocity.y);
                 GetComponent<SpriteRenderer>().flipX = true;
             }
             else if(posJugador.x!=0)
             {
                 Dere = false;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(posJugador.x, GetComponent<Rigidbody2D>().velocity.y);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-velocidad2, GetComponent<Rigidbody2D>().velocity.y);
                 GetComponent<SpriteRenderer>().flipX = false;
             }
             
             
             nextChange = Time.time + rate;
-            /*
-            pantalla = false;
-            if (Dere)
-            {
-               
-                Dere = false;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(posJugador.x, GetComponent<Rigidbody2D>().velocity.y);
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else
-            {
-                posJugador = jugador.GetComponent<Rigidbody2D>().position;
-                Dere = true;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(posJugador.x, GetComponent<Rigidbody2D>().velocity.y);
-                GetComponent<SpriteRenderer>().flipX = false;
-            }*/
         }
         if( Time.time > nexFire)
         {

@@ -12,5 +12,6 @@ public class BotonesInicio : MonoBehaviour {
     public void Ok()
     {
         SceneManager.LoadScene(1);
+        
     }
 }

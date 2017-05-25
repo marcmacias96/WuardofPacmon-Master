@@ -9,7 +9,7 @@ public class VidaBos : MonoBehaviour {
     public GameObject BarraVida;
 	// Use this for initialization
 	void Start () {
-        golpe = 5;
+       
         NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
     }
 	

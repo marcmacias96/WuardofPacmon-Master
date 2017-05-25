@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class movimiento : MonoBehaviour
 {
-    public float fuerzaSalto = 10.0F; //Velocidad de movimiento
+    public float fuerzaSalto; //Velocidad de movimiento
     public static float velo = 26.5f;
     public  float velocidad;
     public bool enSuelo = true;
@@ -15,6 +15,7 @@ public class movimiento : MonoBehaviour
     private bool corriendo = false;
     public bool pantInicio = false;
     public bool dobleSalto = false;
+    private bool muerto=false;
     public GameObject SystemPArticulas;
     private Vector2 touchOrigin = -Vector2.one;
     
@@ -24,6 +25,7 @@ public class movimiento : MonoBehaviour
         NotificationCenter.DefaultCenter().AddObserver(this, "AumentarVelocidad");
         NotificationCenter.DefaultCenter().AddObserver(this, "SystemPaticule");
         NotificationCenter.DefaultCenter().AddObserver(this, "Quieto");
+        NotificationCenter.DefaultCenter().AddObserver(this, "PersonajeHaMuerto");
         if (pantInicio)
         {
             corriendo = true;
@@ -31,9 +33,14 @@ public class movimiento : MonoBehaviour
 
         }
     }
+    void PersonajeHaMuerto()
+    {
+        muerto = true;
+    }
     void Quieto()
     {
         velocidad = 0;
+        fuerzaSalto = 0;
     }
     void SystemPaticule(Notification not)
     {
@@ -77,38 +84,23 @@ public class movimiento : MonoBehaviour
             {
                 if(!pantInicio)
                 {
-                    if (enSuelo || !dobleSalto)
+                    if (enSuelo || !dobleSalto )
                     {
                         // Hacemos que salte si puede saltar
-                        GetComponent<AudioSource>().Play();/*
-                        Touch myTouch = Input.touches[0];
-                        if (myTouch.phase == TouchPhase.Began)
+                        if (!muerto)
                         {
-                            touchOrigin = myTouch.position;
-
-                        }
-                        else if (myTouch.phase == TouchPhase.Ended && touchOrigin != -Vector2.one)
-                        {
-                            Vector2 touchEnd = myTouch.position;
-                            float x = touchEnd.x - touchOrigin.x;
-                            float y = touchEnd.y - touchOrigin.y;
-                            if (x != 0 || y != 0)
+                            GetComponent<AudioSource>().Play();
+                            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, fuerzaSalto);
+                            if (!dobleSalto && !enSuelo)
                             {
-                                if (Mathf.Abs(x) <= Mathf.Abs(y))
-                                {
-                                    if (y < 0)
-                                    {
-                                        GetComponent<Collider2D>().isTrigger = true;
-                                    }
-                                }
+                                dobleSalto = true;
                             }
-                        }*/
-                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, fuerzaSalto);
-                        //rigidbody2D.AddForce(new Vector2(0, fuerzaSalto));
-                        if (!dobleSalto && !enSuelo)
-                        {
-                            dobleSalto = true;
                         }
+                        else
+                        {
+                            Debug.Log("ya no debe saltar");
+                        }
+                        
                     }
                 }
                

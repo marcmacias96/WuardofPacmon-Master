@@ -9,7 +9,6 @@ public class GeneradorPersonajes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         nombre = EstadoJuego.estadoJuego.jugador;
-
         for (int i = 0; i < personajes.Length; i++)
         {
 

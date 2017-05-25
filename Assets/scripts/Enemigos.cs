@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemigos : MonoBehaviour
 {
+    private GameObject maincamara;
     public float velocidad = 1;
     private string nombre;
     private GameObject personaje;  
@@ -15,8 +16,8 @@ public class Enemigos : MonoBehaviour
     void Start()
     {
         NotificationCenter.DefaultCenter().AddObserver(this, "Desactivar2");
-        
 
+        maincamara = GameObject.Find("Main");
         nombre = GameObject.Find("EstadoJuego").GetComponent<EstadoJuego>().jugador;
     }
     
@@ -48,14 +49,18 @@ public class Enemigos : MonoBehaviour
         {
             if(nomorir)
             {
+                GetComponent<Collider2D>().isTrigger = true;
                 Destroy(obj);
                 NotificationCenter.DefaultCenter().PostNotification(this, "IncrementarPuntos", puntosGanados);
+                
                 
             }
             else
             {
-               
+                maincamara.GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().Play();
                 other.gameObject.GetComponent<Animator>().SetBool("muerto",true);
+                velocidad = 0;
                 Invoke("Muerto", 1);
                 NotificationCenter.DefaultCenter().PostNotification(this, "Quieto");
 

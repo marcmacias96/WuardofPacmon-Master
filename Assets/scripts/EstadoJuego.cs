@@ -7,7 +7,7 @@ using System.IO;
 public class EstadoJuego : MonoBehaviour {
 
 	public int puntuacionMaxima = 0;
-
+    public static GameObject maincamera;
 	public static EstadoJuego estadoJuego;
     public String jugador;
 	
@@ -17,7 +17,7 @@ public class EstadoJuego : MonoBehaviour {
     
 
 	void Awake(){
-       
+        
             rutaArchivo = Application.persistentDataPath + "/datos.dat";
 		if(estadoJuego==null){
 			estadoJuego = this;
@@ -30,16 +30,17 @@ public class EstadoJuego : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cargar();
+        NotificationCenter.DefaultCenter().AddObserver(this, "BuscarCamara");
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
         
         
     }
-	
-	public void Guardar(){
+
+    public void Guardar(){
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(rutaArchivo);
 		

@@ -37,7 +37,7 @@ public class MovPakVsBos : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         
             entra = pantalla;
         if (pantalla)
@@ -58,7 +58,7 @@ public class MovPakVsBos : MonoBehaviour {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
         }
-            if(dispara && Time.time > nexFire)
+            if(dispara )
             {
                 dispara = false;
                 nexFire = Time.time + fireRate;
@@ -66,8 +66,6 @@ public class MovPakVsBos : MonoBehaviour {
                 GetComponent<Animator>().SetBool("dispara", true);
                 Invoke("Dispara", 0.2f);
                 Invoke("noDispara", 0.1f);
-                
-
             }
             
 
