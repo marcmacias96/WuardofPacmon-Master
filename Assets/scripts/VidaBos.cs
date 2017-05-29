@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VidaBos : MonoBehaviour {
-    public float Vida=100;
+    public float Vida = 10;
     string text;
     public int golpe;
     public GameObject BarraVida;
+    public GameObject camaraFinNivel;
 	// Use this for initialization
 	void Start () {
        
@@ -18,7 +19,7 @@ public class VidaBos : MonoBehaviour {
 		if(Vida<0)
         {
             Destroy(gameObject);
-
+            camaraFinNivel.SetActive(true);
         }
 	}
     private void OnTriggerEnter2D(Collider2D collision)

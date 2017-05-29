@@ -14,4 +14,8 @@ public class BotonesInicio : MonoBehaviour {
         SceneManager.LoadScene(1);
         
     }
+    public void pasarJefe1()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

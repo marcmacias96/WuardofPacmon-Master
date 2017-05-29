@@ -10,7 +10,6 @@ public class EstadoJuego : MonoBehaviour {
     public static GameObject maincamera;
 	public static EstadoJuego estadoJuego;
     public String jugador;
-	
 	private String rutaArchivo;
    
 

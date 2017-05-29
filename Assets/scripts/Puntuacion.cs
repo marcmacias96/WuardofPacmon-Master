@@ -9,6 +9,7 @@ public class Puntuacion : MonoBehaviour {
     public TextMesh marcadorPaks;
     public GameObject geneEnemigos2;
     public GameObject geneEnemigos3;
+    public GameObject camaraPasarNivel;
     private bool entra=false;
 
 	// Use this for initialization
@@ -68,7 +69,10 @@ public class Puntuacion : MonoBehaviour {
 		puntuacion+=puntosAIncrementar;
 		ActualizarMarcador();
 	}
-
+    void Pausa()
+    {
+        Time.timeScale = 0;
+    }
 	void ActualizarMarcador(){
         if(puntuacion!=0)
         {
@@ -80,7 +84,9 @@ public class Puntuacion : MonoBehaviour {
         }
         if(puntuacion==100)
         {
-            SceneManager.LoadScene(3);
+            camaraPasarNivel.SetActive(true);
+            Invoke("Pausa", 0.8f);
+            
             if (puntuacion > EstadoJuego.estadoJuego.puntuacionMaxima)
             {
                 EstadoJuego.estadoJuego.puntuacionMaxima = puntuacion;
